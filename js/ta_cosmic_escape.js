@@ -167,7 +167,7 @@ render();
 function init(){
     renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.shadowMap.enabled = false;
+    renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     document.getElementById('container').appendChild(renderer.domElement);
 
