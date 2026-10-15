@@ -815,6 +815,7 @@ function crearLaboratorio() {
                 foco.shadow.mapSize.set(512, 512);
                 foco.shadow.camera.near = 0.5;
                 foco.shadow.camera.far = 20;
+                foco.shadow.bias = -0.001;
             }
         }
 
@@ -3216,6 +3217,12 @@ function loadScene() {
     // Iluminación general
     const luzAmbiental = new THREE.AmbientLight(0xffffff, 0.7);
     scene.add(luzAmbiental);
+
+    scene.traverse(function(obj) {
+        if (obj.isMesh && obj.material && !obj.material.transparent) {
+            obj.receiveShadow = true;
+        }
+    });
 }
 
 
